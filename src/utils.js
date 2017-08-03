@@ -1,7 +1,7 @@
 const generateColumns = (columnWidth, columnCount, columnBackgroundColor, columnHeight, gutterWidth, marginWidth) => {
   let columns = [];
-  for (var i = 0; i < columnCount; i++) {
-    var column = {
+  for (let i = 0; i < columnCount; i++) {
+    const column = {
       name: `column ${i+1}`,
       height: columnHeight,
       width: columnWidth,

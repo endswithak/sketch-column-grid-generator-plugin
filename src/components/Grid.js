@@ -1,6 +1,6 @@
 import React from 'react';
 import { Artboard, View } from 'react-sketchapp';
-
+import PropTypes from 'prop-types';
 import Column from './Column';
 
 const Grid = ({ width, height, columnCount, columns }) => (
@@ -22,5 +22,12 @@ const Grid = ({ width, height, columnCount, columns }) => (
     </View>
   </Artboard>
 );
+
+Grid.propTypes = {
+  width: PropTypes.number,
+  height: PropTypes.number,
+  columnCount: PropTypes.number,
+  columns: PropTypes.arrayOf(PropTypes.object)
+};
 
 export default Grid;

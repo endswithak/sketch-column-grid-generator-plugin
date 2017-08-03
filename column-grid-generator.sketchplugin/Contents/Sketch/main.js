@@ -337,7 +337,7 @@ module.exports = invariant;
 
 
 
-var emptyFunction = __webpack_require__(10);
+var emptyFunction = __webpack_require__(11);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -714,7 +714,7 @@ module.exports = __webpack_require__(24);
 
 var _prodInvariant = __webpack_require__(14);
 
-var ReactCurrentOwner = __webpack_require__(8);
+var ReactCurrentOwner = __webpack_require__(9);
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -1083,6 +1083,43 @@ module.exports = ReactComponentTreeHook;
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+
+if (process.env.NODE_ENV !== 'production') {
+  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
+    Symbol.for &&
+    Symbol.for('react.element')) ||
+    0xeac7;
+
+  var isValidElement = function(object) {
+    return typeof object === 'object' &&
+      object !== null &&
+      object.$$typeof === REACT_ELEMENT_TYPE;
+  };
+
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  module.exports = __webpack_require__(38)(isValidElement, throwOnDirectAccess);
+} else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = __webpack_require__(83)();
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -1114,7 +1151,7 @@ var ReactCurrentOwner = {
 module.exports = ReactCurrentOwner;
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1132,7 +1169,7 @@ module.exports = ReactCurrentOwner;
 
 var _assign = __webpack_require__(5);
 
-var ReactCurrentOwner = __webpack_require__(8);
+var ReactCurrentOwner = __webpack_require__(9);
 
 var warning = __webpack_require__(2);
 var canDefineProperty = __webpack_require__(25);
@@ -1461,7 +1498,7 @@ module.exports = ReactElement;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1503,43 +1540,6 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- */
-
-if (process.env.NODE_ENV !== 'production') {
-  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
-    Symbol.for &&
-    Symbol.for('react.element')) ||
-    0xeac7;
-
-  var isValidElement = function(object) {
-    return typeof object === 'object' &&
-      object !== null &&
-      object.$$typeof === REACT_ELEMENT_TYPE;
-  };
-
-  // By explicitly using `prop-types` you are opting into new development behavior.
-  // http://fb.me/prop-types-in-prod
-  var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(38)(isValidElement, throwOnDirectAccess);
-} else {
-  // By explicitly using `prop-types` you are opting into new production behavior.
-  // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(83)();
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 12 */
@@ -2725,7 +2725,7 @@ var _assign = __webpack_require__(5);
 var ReactBaseClasses = __webpack_require__(61);
 var ReactChildren = __webpack_require__(129);
 var ReactDOMFactories = __webpack_require__(130);
-var ReactElement = __webpack_require__(9);
+var ReactElement = __webpack_require__(10);
 var ReactPropTypes = __webpack_require__(132);
 var ReactVersion = __webpack_require__(134);
 
@@ -3873,7 +3873,7 @@ module.exports = ExecutionEnvironment;
 
 
 
-var emptyFunction = __webpack_require__(10);
+var emptyFunction = __webpack_require__(11);
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
 
@@ -4495,7 +4495,7 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(11);
+var _propTypes = __webpack_require__(8);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -4657,7 +4657,7 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(11);
+var _propTypes = __webpack_require__(8);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -4742,7 +4742,7 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(11);
+var _propTypes = __webpack_require__(8);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -5377,7 +5377,7 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(11);
+var _propTypes = __webpack_require__(8);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -6346,7 +6346,7 @@ module.exports = shouldUpdateReactComponent;
 
 var _prodInvariant = __webpack_require__(3);
 
-var ReactCurrentOwner = __webpack_require__(8);
+var ReactCurrentOwner = __webpack_require__(9);
 var REACT_ELEMENT_TYPE = __webpack_require__(107);
 
 var getIteratorFn = __webpack_require__(126);
@@ -6707,9 +6707,9 @@ module.exports = REACT_ELEMENT_TYPE;
 
 
 
-var ReactCurrentOwner = __webpack_require__(8);
+var ReactCurrentOwner = __webpack_require__(9);
 var ReactComponentTreeHook = __webpack_require__(7);
-var ReactElement = __webpack_require__(9);
+var ReactElement = __webpack_require__(10);
 
 var checkReactTypeSpec = __webpack_require__(135);
 
@@ -7178,6 +7178,10 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactSketchapp = __webpack_require__(26);
 
+var _propTypes = __webpack_require__(8);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _Column = __webpack_require__(71);
 
 var _Column2 = _interopRequireDefault(_Column);
@@ -7208,6 +7212,13 @@ var Grid = function Grid(_ref) {
       })
     )
   );
+};
+
+Grid.propTypes = {
+  width: _propTypes2['default'].number,
+  height: _propTypes2['default'].number,
+  columnCount: _propTypes2['default'].number,
+  columns: _propTypes2['default'].arrayOf(_propTypes2['default'].object)
 };
 
 exports['default'] = Grid;
@@ -7298,6 +7309,10 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactSketchapp = __webpack_require__(26);
 
+var _propTypes = __webpack_require__(8);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var Column = function Column(_ref) {
@@ -7309,6 +7324,15 @@ var Column = function Column(_ref) {
       backgroundColor = _ref.backgroundColor;
   return _react2['default'].createElement(_reactSketchapp.View, { name: name,
     style: { height: height, width: width, marginLeft: marginLeft, marginRight: marginRight, backgroundColor: backgroundColor } });
+};
+
+Column.propTypes = {
+  width: _propTypes2['default'].number,
+  height: _propTypes2['default'].number,
+  marginLeft: _propTypes2['default'].number,
+  marginRight: _propTypes2['default'].number,
+  name: _propTypes2['default'].string,
+  backgroundColor: _propTypes2['default'].string
 };
 
 exports['default'] = Column;
@@ -10325,7 +10349,7 @@ module.exports = function(isValidElement) {
 
 
 
-var emptyFunction = __webpack_require__(10);
+var emptyFunction = __webpack_require__(11);
 var invariant = __webpack_require__(1);
 var ReactPropTypesSecret = __webpack_require__(28);
 
@@ -10410,7 +10434,7 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(11);
+var _propTypes = __webpack_require__(8);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -10488,7 +10512,7 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(11);
+var _propTypes = __webpack_require__(8);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -11866,7 +11890,7 @@ var _prodInvariant = __webpack_require__(3),
 
 var React = __webpack_require__(24);
 var ReactComponentEnvironment = __webpack_require__(33);
-var ReactCurrentOwner = __webpack_require__(8);
+var ReactCurrentOwner = __webpack_require__(9);
 var ReactErrorUtils = __webpack_require__(108);
 var ReactInstanceMap = __webpack_require__(34);
 var ReactInstrumentation = __webpack_require__(22);
@@ -13139,7 +13163,7 @@ var _assign = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(23);
 var Transaction = __webpack_require__(35);
 
-var emptyFunction = __webpack_require__(10);
+var emptyFunction = __webpack_require__(11);
 
 var RESET_BATCHED_UPDATES = {
   initialize: emptyFunction,
@@ -13429,11 +13453,11 @@ var ReactComponentEnvironment = __webpack_require__(33);
 var ReactInstanceMap = __webpack_require__(34);
 var ReactInstrumentation = __webpack_require__(22);
 
-var ReactCurrentOwner = __webpack_require__(8);
+var ReactCurrentOwner = __webpack_require__(9);
 var ReactReconciler = __webpack_require__(16);
 var ReactChildReconciler = __webpack_require__(103);
 
-var emptyFunction = __webpack_require__(10);
+var emptyFunction = __webpack_require__(11);
 var flattenChildren = __webpack_require__(124);
 var invariant = __webpack_require__(1);
 
@@ -14632,7 +14656,7 @@ module.exports = ReactTestTextComponent;
 
 var _prodInvariant = __webpack_require__(3);
 
-var ReactCurrentOwner = __webpack_require__(8);
+var ReactCurrentOwner = __webpack_require__(9);
 var ReactInstanceMap = __webpack_require__(34);
 var ReactInstrumentation = __webpack_require__(22);
 var ReactUpdates = __webpack_require__(23);
@@ -15309,9 +15333,9 @@ module.exports = PooledClass;
 
 
 var PooledClass = __webpack_require__(128);
-var ReactElement = __webpack_require__(9);
+var ReactElement = __webpack_require__(10);
 
-var emptyFunction = __webpack_require__(10);
+var emptyFunction = __webpack_require__(11);
 var traverseAllChildren = __webpack_require__(139);
 
 var twoArgumentPooler = PooledClass.twoArgumentPooler;
@@ -15504,7 +15528,7 @@ module.exports = ReactChildren;
 
 
 
-var ReactElement = __webpack_require__(9);
+var ReactElement = __webpack_require__(10);
 
 /**
  * Create a factory that creates HTML tag elements.
@@ -15710,7 +15734,7 @@ module.exports = ReactPropTypeLocationNames;
 
 
 
-var _require = __webpack_require__(9),
+var _require = __webpack_require__(10),
     isValidElement = _require.isValidElement;
 
 var factory = __webpack_require__(82);
@@ -15871,7 +15895,7 @@ module.exports = checkReactTypeSpec;
 var _require = __webpack_require__(61),
     Component = _require.Component;
 
-var _require2 = __webpack_require__(9),
+var _require2 = __webpack_require__(10),
     isValidElement = _require2.isValidElement;
 
 var ReactNoopUpdateQueue = __webpack_require__(64);
@@ -15923,7 +15947,7 @@ module.exports = getNextDebugID;
 
 var _prodInvariant = __webpack_require__(14);
 
-var ReactElement = __webpack_require__(9);
+var ReactElement = __webpack_require__(10);
 
 var invariant = __webpack_require__(1);
 
@@ -15968,7 +15992,7 @@ module.exports = onlyChild;
 
 var _prodInvariant = __webpack_require__(14);
 
-var ReactCurrentOwner = __webpack_require__(8);
+var ReactCurrentOwner = __webpack_require__(9);
 var REACT_ELEMENT_TYPE = __webpack_require__(62);
 
 var getIteratorFn = __webpack_require__(65);
