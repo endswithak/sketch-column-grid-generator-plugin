@@ -2,7 +2,7 @@
   "name": "sketch-column-grid-generator",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "column-grid-generator.sketchplugin",
   "manifest": "src/manifest.json",
   "scripts": {
     "build": "skpm build",
@@ -10,9 +10,6 @@
     "render": "skpm build --watch --run",
     "render:once": "skpm build --run",
     "link-plugin": "skpm link"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Erik Myers",
   "license": "MIT",
@@ -23,6 +20,6 @@
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-sketchapp": "^0.12.0",
-    "react-test-renderer": "^15.6.1",
+    "react-test-renderer": "^15.6.1"
   }
 }
